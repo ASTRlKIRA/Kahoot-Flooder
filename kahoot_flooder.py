@@ -48,17 +48,6 @@ class Output:
     turquesa = colored_text("#00916e")
     orange = colored_text("#f77f00")
 
-class Console:
-    def title():
-        while Stats.working:
-            elapsed_time = time.time() - Stats.start
-            elapsed_days = int(elapsed_time // 86400)
-            elapsed_hours = int((elapsed_time % 86400) // 3600)
-            elapsed_minutes = int((elapsed_time % 3600) // 60)
-            elapsed_seconds = int(elapsed_time % 60)
-
-            ctypes.windll.kernel32.SetConsoleTitleW(f'𝓚𝓪𝓱𝓸𝓸𝓽 𝓕𝓵𝓸𝓸𝓭𝓮𝓻 | 𝓢𝓾𝓬𝓬𝓮𝓼𝓼: {Stats.flooded} - 𝓕𝓪𝓲𝓵𝓮𝓭: {Stats.failed} - 𝓔𝓵𝓪𝓹𝓼𝓮𝓭: {elapsed_days}𝓭 {elapsed_hours}𝓱 {elapsed_minutes}𝓶 {elapsed_seconds}𝓼 | .𝓰𝓰/𝓻𝓪𝓭𝓾𝓬𝓸𝓻𝓭')
-
 class Stats:
     flooded = 0
     failed = 0
@@ -305,11 +294,11 @@ if __name__ == "__main__":
         line = f"{Output.cherry}={Output.red}="
         print(line * 60)
 
-        threading.Thread(target=Console.title).start()
-
-        threads = input(f"\n{Output.gray} {KahootFlooder.__time__("")} {Output.reset}({Output.cherry}?{Output.reset}) {Output.gray}Bot Amount: {Output.light_cyan}")
-        names = input(f"{Output.gray} {KahootFlooder.__time__("")} {Output.reset}({Output.cherry}?{Output.reset}) {Output.gray}Bot Names: {Output.light_cyan}")
-        kahoot_id = input(f"{Output.gray} {KahootFlooder.__time__("")} {Output.reset}({Output.cherry}?{Output.reset}) {Output.gray}Kahoot Game ID: {Output.light_cyan}"); print()
+        kahoot_id = input(f"{Output.gray} {KahootFlooder.__time__("")} {Output.reset}({Output.cherry}?{Output.reset}) {Output.gray} Game ID: {Output.light_cyan}")
+        names = input(f"{Output.gray} {KahootFlooder.__time__("")} {Output.reset}({Output.cherry}?{Output.reset}) {Output.gray} Name Prefix: {Output.light_cyan}")
+        threads = input(f"\n{Output.gray} {KahootFlooder.__time__("")} {Output.reset}({Output.cherry}?{Output.reset}) {Output.gray} Amount: {Output.light_cyan}"); print()
+        
+        
 
         while True:
             while threading.active_count()-1 < int(threads) + 1:
